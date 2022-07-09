@@ -5,12 +5,17 @@ const Sequelize = require('sequelize')
 
 const app = express();
 
+//importamos el controlador
+const tasks = require('./controllers/task')
+
 app.use(bodyParser.json({
     extended: true
 }))
 
 //le indicamos el motor de vistas a nuestra app
-app.use('view engine', 'pug');
+app.set('view engine', 'pug');
+
+app.get('/tasks', tasks.home)
 
 
 //instanciamos a sequelize que se le pasan 3 parametros BD user y password y el 4 es un json de configuracion para la BD
