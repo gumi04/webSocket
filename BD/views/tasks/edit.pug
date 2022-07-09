@@ -1,0 +1,8 @@
+doctype html 
+html
+  head
+    title Tareas
+  body
+    form(action=`/tasks/${tarea.id}?_method=PUT` method="POST")
+      textarea(name="description" placeholder="agrega description")= tarea.description
+      input(type="submit" value="Guardar") 
