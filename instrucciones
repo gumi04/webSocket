@@ -1,0 +1,8 @@
+1.- para iniciar un proyecto 
+ npm init
+
+2.- para ejecutar nuestro servidor
+node server.js
+
+instalar express 
+npm install express
