@@ -20,3 +20,17 @@ motor de vistas para nodejs esto para enviar datos del servidor al cliente esto 
 algo como blade en laravel
 se instala con 
 npm install ejs -> para el motor de vistas
+
+
+la cache 
+por defecto el cache se almacena en el navegador
+no son tan eficientes ya que se manda al servidor y puede tardar mas
+Etag -> es una estrategia de cache para poder mejorar el rendimiento y no ir al back por los recursos tan frecuente
+
+max-age le podemos indicar al navegador por cuanto tiempo es valido el recurso en el cache del navegador
+
+
+cokies
+las cokies no se comparten entre dominios
+para el manejo de cookies se intala una dependencia
+npm install cookie-session2
