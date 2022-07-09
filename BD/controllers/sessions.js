@@ -13,5 +13,11 @@ module.exports = {
             res.json(error)
         })
 
+    },
+    destroy: (req, res) => {
+        //eliminamos toda la sesion y recibe una funcion para indicar que termino
+        req.session.destroy(()=>{
+            res.redirect('/sessions');
+        });
     }
 };
