@@ -6,3 +6,6 @@ node server.js
 
 instalar express 
 npm install express
+
+para usar body parser  se intala con  para parsear json
+npm instal body-parser
