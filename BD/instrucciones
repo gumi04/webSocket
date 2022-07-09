@@ -69,3 +69,20 @@ sequelize db:migrate
 
 para revertir la ultima migracion 
 sequelize db:migrate:undo
+
+
+controladores
+son los que reciben la peticion y dan una respuesta
+
+
+motor de vistas pug de node
+se instala la dependencia
+npm install pug
+
+los seeders nos permiten crear data dummy
+primero se pasa el name para el nombre del seeders
+sequelize seed:generate --name generate_tasks
+para ejecutar los seeders
+sequelize db:seed:all
+para desacer el ultimo seed
+sequelize db:seed:undo:all

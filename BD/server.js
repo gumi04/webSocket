@@ -9,6 +9,9 @@ app.use(bodyParser.json({
     extended: true
 }))
 
+//le indicamos el motor de vistas a nuestra app
+app.use('view engine', 'pug');
+
 
 //instanciamos a sequelize que se le pasan 3 parametros BD user y password y el 4 es un json de configuracion para la BD
 // const sequelize = new Sequelize('demo',null, null,{
