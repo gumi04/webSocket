@@ -46,3 +46,16 @@ orm
 como sqlite js 
 instalamos com npm
 npm install sequelize
+
+
+las migraciones nos permiten tener un control sobre la bD y los cambios 
+en ellas
+
+
+herramienta para la terminal para generar migraciones 
+npm install -g sequelize-cli
+comando para administritar sequelize
+sequelize --version
+antes de la migracion se ejecuta 
+sequelize init en la carpeta donde tenemos el proyecto
+crea 4 carpteas modelos,views, migrations y seeders
