@@ -101,3 +101,10 @@ npm install bcrypt
 
 hooks
 nos permiten ejecutar codigo anstes o despues de un evento
+
+
+manejo de sesiones para usuarios
+npm install express-session
+
+
+middleware
