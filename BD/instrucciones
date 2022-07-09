@@ -107,4 +107,5 @@ manejo de sesiones para usuarios
 npm install express-session
 
 
-middleware
+para modificar las tablas se crea una nueva migracion
+sequelize migration:create --name add_user_id_to_tasks
