@@ -11,10 +11,10 @@ app.use(bodyParser.json({
 
 
 //instanciamos a sequelize que se le pasan 3 parametros BD user y password y el 4 es un json de configuracion para la BD
-const sequelize = new Sequelize('demo',null, null,{
-    dialect: 'sqlite',
-    storage: '/.demo'
-});
+// const sequelize = new Sequelize('demo',null, null,{
+//     dialect: 'sqlite',
+//     storage: '/.demo'
+// });
 
 
 //intanciamos la BD y le indicamos el nombre
