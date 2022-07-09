@@ -37,3 +37,7 @@ npm install cookie-session
     configuracion de cooki
         es un nombre 
         un arreglo con claves para firmar la cookies y validarlas
+
+
+BD se instala dependencia para su manejo en este caso es sql3
+npm install sqlite3
