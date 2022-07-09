@@ -91,3 +91,7 @@ sequelize db:seed:undo:all
 para sobreescribir las peticiones del navedaro se instala una libreria
 libreria para sobreescribir el vervo http
 npm install method-override
+
+
+usuario
+sequelize model:generate --name User --attributes email:string,password:string
