@@ -1,7 +1,7 @@
 const express = require('express');
 const sqlite3 = require('sqlite3');
 const bodyParser = require('body-parser')
-
+const Sequelize = require('sequelize')
 
 const app = express();
 
@@ -9,9 +9,17 @@ app.use(bodyParser.json({
     extended: true
 }))
 
+
+//instanciamos a sequelize que se le pasan 3 parametros BD user y password y el 4 es un json de configuracion para la BD
+const sequelize = new Sequelize('demo',null, null,{
+    dialect: 'sqlite',
+    storage: '/.demo'
+});
+
+
 //intanciamos la BD y le indicamos el nombre
 //:memory -> se almacena en memoria
-let db = new sqlite3.Database('demo')
+//let db = new sqlite3.Database('demo')
 
 //ejecutar una consulta
 //lo ejecutamos y la comentamos para que no exista error
@@ -30,9 +38,9 @@ app.listen(3000);
 
 //escucha el proceso y cuando se cierra el navegador
 //sigint escucha cuando doy control z que es que termino el server
-process.on('SIGINT', function () {
-    console.log("servidor cerrado")
-    //cerramos la conexion
-    db.close();
-    process.exit();
-})
+// process.on('SIGINT', function () {
+//     console.log("servidor cerrado")
+//     //cerramos la conexion
+//     db.close();
+//     process.exit();
+// })

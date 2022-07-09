@@ -41,3 +41,8 @@ npm install cookie-session
 
 BD se instala dependencia para su manejo en este caso es sql3
 npm install sqlite3
+
+orm 
+como sqlite js 
+instalamos com npm
+npm install sequelize
