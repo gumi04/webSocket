@@ -33,4 +33,7 @@ max-age le podemos indicar al navegador por cuanto tiempo es valido el recurso e
 cokies
 las cokies no se comparten entre dominios
 para el manejo de cookies se intala una dependencia
-npm install cookie-session2
+npm install cookie-session
+    configuracion de cooki
+        es un nombre 
+        un arreglo con claves para firmar la cookies y validarlas
