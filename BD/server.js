@@ -9,6 +9,7 @@ const app = express();
 //importamos el task routes
 const tasksRoutes = require('./routes/tasks_routes')
 const registrationRoutes = require('./routes/registration_routes')
+const sessionsRoutes = require('./routes/sessions_routes')
 
 
 app.use(bodyParser.urlencoded({
@@ -21,6 +22,7 @@ app.set('view engine', 'pug');
 //montamos la rutas de task
 app.use(tasksRoutes);
 app.use(registrationRoutes);
+app.use(sessionsRoutes);
 
 
 
