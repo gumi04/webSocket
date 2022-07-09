@@ -1,0 +1,71 @@
+1.- para iniciar un proyecto 
+ npm init
+
+2.- para ejecutar nuestro servidor
+node server.js
+
+instalar express 
+npm install express
+
+para usar body parser  se intala con  para parsear json
+npm instal body-parser
+
+
+para enviar archivos estaticos son css y js 
+se le debe indicar al cliente que tipo de archivos son para que sepa como utilizarlofa-spin
+en assets solo van cosas publicas imagenes css js o recursos para la pagina 
+
+
+motor de vistas para nodejs esto para enviar datos del servidor al cliente esto para enviar html
+algo como blade en laravel
+se instala con 
+npm install ejs -> para el motor de vistas
+
+
+la cache 
+por defecto el cache se almacena en el navegador
+no son tan eficientes ya que se manda al servidor y puede tardar mas
+Etag -> es una estrategia de cache para poder mejorar el rendimiento y no ir al back por los recursos tan frecuente
+
+max-age le podemos indicar al navegador por cuanto tiempo es valido el recurso en el cache del navegador
+
+
+cokies
+las cokies no se comparten entre dominios
+para el manejo de cookies se intala una dependencia
+npm install cookie-session
+    configuracion de cooki
+        es un nombre 
+        un arreglo con claves para firmar la cookies y validarlas
+
+
+BD se instala dependencia para su manejo en este caso es sql3
+npm install sqlite3
+
+orm 
+como sqlite js 
+instalamos com npm
+npm install sequelize
+
+
+las migraciones nos permiten tener un control sobre la bD y los cambios 
+en ellas
+
+
+herramienta para la terminal para generar migraciones 
+npm install -g sequelize-cli
+comando para administritar sequelize
+sequelize --version
+antes de la migracion se ejecuta 
+sequelize init en la carpeta donde tenemos el proyecto
+crea 4 carpteas modelos,views, migrations y seeders
+
+
+para generar las migraciones se ejecuta el siguiente comando no se ocupa el id ya que la libreria se encarga
+sequelize model:generate --name Task  --attributes description:text
+una vez ejecutado crea la migracion y el modelo
+teniendo esto se ejecuta un comando para que las ejecute si es que no tenemos las migraciones
+sequelize db:migrate
+
+para revertir la ultima migracion 
+sequelize db:migrate:undo
