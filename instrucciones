@@ -9,3 +9,14 @@ npm install express
 
 para usar body parser  se intala con  para parsear json
 npm instal body-parser
+
+
+para enviar archivos estaticos son css y js 
+se le debe indicar al cliente que tipo de archivos son para que sepa como utilizarlofa-spin
+en assets solo van cosas publicas imagenes css js o recursos para la pagina 
+
+
+motor de vistas para nodejs esto para enviar datos del servidor al cliente esto para enviar html
+algo como blade en laravel
+se instala con 
+npm install ejs -> para el motor de vistas
