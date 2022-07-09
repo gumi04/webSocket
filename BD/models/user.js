@@ -2,6 +2,9 @@
 const {
   Model
 } = require('sequelize');
+
+const bcrypt = require('bcrypt')
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -14,11 +17,31 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
+
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    password_hash: DataTypes.VIRTUAL
   }, {
     sequelize,
     modelName: 'User',
   });
-  return User;
+  User.beforeCreate((user, options) => {
+    return new Promise((res,rej)=>{
+      if (user.password) {
+        bcrypt.hash(password, 10, (error, hash) => {
+          //atributos vituales que se utilizan pero no en BD
+          user.password = hash;
+        })
+      }  
+    })
+  })
+}
+return User;
 };

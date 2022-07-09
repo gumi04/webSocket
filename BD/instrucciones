@@ -95,3 +95,9 @@ npm install method-override
 
 usuario
 sequelize model:generate --name User --attributes email:string,password:string
+
+encritar en bcrypt
+npm install bcrypt
+
+hooks
+nos permiten ejecutar codigo anstes o despues de un evento
