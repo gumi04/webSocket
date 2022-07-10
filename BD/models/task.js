@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { id } = require('../realtime/client');
 const socket = require('../realtime/client');
 module.exports = (sequelize, DataTypes) => {
   class Task extends Model {

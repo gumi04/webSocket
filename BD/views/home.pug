@@ -7,12 +7,17 @@ html
     p
       span Usuarios conectados: 
       span#connected
+    p 
+      span Notificacioens desdel socket 
+      p#title
     form(action='/sessions?_method=DELETE', method="POST")
-     input(type="submit" value="Cerrar Sesion")  
+     input(type="submit" value="Cerrar Sesion")    
 
      script(src="/socket.io/socket.io.js")
      script.
-       socket = io.connect()
+       socket = io.connect(window.location.origin,{
+         query:'loggeduser=#{user.id}'
+       })
        socket.on('count_updated', (data)=>{
          console.log(data)
          document.querySelector('#connected').innerHTML = data.count
@@ -20,4 +25,5 @@ html
 
        socket.on('new_task', (data)=>{
          console.log(data)
+         document.querySelector('#title').innerHTML = data
        })

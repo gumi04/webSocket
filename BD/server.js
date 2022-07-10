@@ -59,10 +59,19 @@ let server = app.listen(3000);
 
 //inicia la configuracion de sockets
 let io = socketio(server)
-
 let usersCount = 0;
+let sockets =[];
+
 //escuchamos el evento de conexion que se va a disparar cuando alguien se conecte al server
 io.on('connection', (socket) =>{
+    
+    let userId = socket.request._query.loggeduser;
+    if(userId){
+        sockets[userId] = socket;
+    } 
+    console.log(sockets)
+    
+    //ususarios en tiempo real
     usersCount++;
 
     io.emit('count_updated', {count: usersCount})
@@ -70,13 +79,25 @@ io.on('connection', (socket) =>{
     //recogemos el evenot del modelo despues de crear una tarea
     //para emitirla a todos los usuarios
     socket.on('new_task', (data)=>{
-        console.log(data);
-        io.emit('new_task', data)
-    })
+
+        if(data.userId){
+            let userSocket = sockets[data.userId];
+            if(!userSocket) return null
+            userSocket.emit('new_task', data)
+        }
+    });
 
 
     //cuando se desconecta alguien
     socket.on('disconnect', ()=>{
+
+        //borramos de la socket si el usuario se desconecta
+        Object.keys(sockets).forEach(userId =>{
+            let s= sockets[userId];
+            if(s.id == socket.id) sockets[userId] = null
+        });
+        
+        console.log(sockets)
         usersCount--;
         //emitimos nuestro mensaje en este caso a todos los navegadores conectados
     // el primer argumento de emit es un identificador para que sepa el cliente que es
@@ -86,4 +107,5 @@ io.on('connection', (socket) =>{
 })
 
 // este se importa una vez este levantado el server
-const client = require('./realtime/client')
+const client = require('./realtime/client');const { id } = require('./realtime/client');
+
