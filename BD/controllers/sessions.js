@@ -8,7 +8,8 @@ module.exports = {
             if(user){
                 req.session.userId = user.id;
             }
-            res.json(user);
+            //res.json(user);
+            res.render('home', {user: user})
         }).catch(error =>{
             res.json(error)
         })

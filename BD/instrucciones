@@ -109,3 +109,16 @@ npm install express-session
 
 para modificar las tablas se crea una nueva migracion
 sequelize migration:create --name add_user_id_to_tasks
+
+tabla asociativa con categorias
+sequelize model:generate --name TaskCategories --attributes taskId:integer,categoryId:integer
+
+websockets
+se implementan con socket.io
+npm install socket.io
+existe una forma de enlazar los sockets con el server
+
+
+en la pagina va la url a donde me quiero conectar
+ script.
+       io.connect("url de donde me quiero conectar)

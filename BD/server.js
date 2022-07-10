@@ -5,6 +5,9 @@ const Sequelize = require('sequelize')
 const methodOverride = require('method-override')
 const session = require('express-session')
 
+//importamos la libreria para sockets
+const socketio = require('socket.io')
+
 const app = express();
 
 //importamos el task routes
@@ -49,5 +52,28 @@ app.get('/',(req,res) =>{
 });
 
 
-app.listen(3000);
+let server = app.listen(3000);
+
+//inicia la configuracion de sockets
+let io = socketio(server)
+
+let usersCount = 0;
+//escuchamos el evento de conexion que se va a disparar cuando alguien se conecte al server
+io.on('connection', (socket) =>{
+    usersCount++;
+
+    io.emit('count_updated', {count: usersCount})
+
+
+    //cuando se desconecta alguien
+    socket.on('disconnect', ()=>{
+        usersCount--;
+        //emitimos nuestro mensaje en este caso a todos los navegadores conectados
+    // el primer argumento de emit es un identificador para que sepa el cliente que es
+    // sel segundo son los datos
+    io.emit('count_updated', {count: usersCount})
+    })
+})
+
+
 
