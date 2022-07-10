@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title Tareas
+  body
+    form(action=`/categories/${categories.id}?_method=PUT` method="POST")
+      input(name="title" placeholder="categoria" value=`${categories.title}`)
+      input(type="color" name="color" value=`${categories.color}`)
+      input(type="submit" value="Actualizar")

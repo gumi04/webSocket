@@ -11,6 +11,7 @@ const app = express();
 const tasksRoutes = require('./routes/tasks_routes')
 const registrationRoutes = require('./routes/registration_routes')
 const sessionsRoutes = require('./routes/sessions_routes')
+const categoryRoutes = require('./routes/categories_routes')
 const findUserMiddleware = require('./middlewares/find_user')
 const AuhtUser = require('./middlewares/auth_user')
 
@@ -39,6 +40,7 @@ app.use(AuhtUser);
 
 //montamos la rutas de task
 app.use(tasksRoutes);
+app.use(categoryRoutes)
 app.use(registrationRoutes);
 app.use(sessionsRoutes);
 
