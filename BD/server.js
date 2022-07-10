@@ -4,9 +4,10 @@ const bodyParser = require('body-parser')
 const Sequelize = require('sequelize')
 const methodOverride = require('method-override')
 const session = require('express-session')
-
 //importamos la libreria para sockets
 const socketio = require('socket.io')
+
+
 
 const app = express();
 
@@ -52,6 +53,8 @@ app.get('/',(req,res) =>{
 });
 
 
+
+
 let server = app.listen(3000);
 
 //inicia la configuracion de sockets
@@ -75,5 +78,5 @@ io.on('connection', (socket) =>{
     })
 })
 
-
-
+// este se importa una vez este levantado el server
+const client = require('./realtime/client')

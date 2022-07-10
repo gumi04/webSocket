@@ -122,3 +122,6 @@ existe una forma de enlazar los sockets con el server
 en la pagina va la url a donde me quiero conectar
  script.
        io.connect("url de donde me quiero conectar)
+
+para conectar un servidor a otro servidor 
+npm install socket.io-client
