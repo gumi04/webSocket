@@ -67,6 +67,13 @@ io.on('connection', (socket) =>{
 
     io.emit('count_updated', {count: usersCount})
 
+    //recogemos el evenot del modelo despues de crear una tarea
+    //para emitirla a todos los usuarios
+    socket.on('new_task', (data)=>{
+        console.log(data);
+        io.emit('new_task', data)
+    })
+
 
     //cuando se desconecta alguien
     socket.on('disconnect', ()=>{

@@ -17,3 +17,7 @@ html
          console.log(data)
          document.querySelector('#connected').innerHTML = data.count
        })
+
+       socket.on('new_task', (data)=>{
+         console.log(data)
+       })
